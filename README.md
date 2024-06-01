@@ -33,3 +33,19 @@ python get_scarf_embedding.py \
   --embedding_save_name="train"
 
 ```
+
+python run_mlp.py \
+  --config_dir "configs" \
+  --output_dir "exp" \
+  --train_data_path "data/small_train.csv" \
+  --batch_size 32 \
+  --epochs 1 \
+  --lr 0.00003 \
+  --model_name "mlp" \
+  --device "cpu" \
+  --wandb_project_name "test" \
+  --wandb_entity "urbancomp" \
+  --wandb_key "your_wandb_api_key" \
+  --hidden_layer 256 128 64 32 16 \
+  --dropout 0.1
+
