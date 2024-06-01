@@ -38,6 +38,7 @@ python run_mlp.py \
   --config_dir "configs" \
   --output_dir "exp" \
   --train_data_path "data/small_train.csv" \
+  --test_data_path "data/small_test.csv" \
   --batch_size 32 \
   --epochs 1 \
   --lr 0.00003 \
