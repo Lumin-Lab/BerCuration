@@ -1,0 +1,326 @@
+{
+    "SA_Code": {
+        "grouped": {
+            "Co. Carlow": "17010028",
+            "Co. Cavan": "27024023",
+            "Co. Clare": "037077010/037077011/037077012",
+            "Co. Cork": "47016065",
+            "Co. Donegal": "057129002/057129004/057129005",
+            "Co. Dublin": "267103001/01",
+            "Co. Galway": "067081001/067084001/067084002",
+            "Co. Kerry": "77161010",
+            "Co. Kildare": "087066046",
+            "Co. Kilkenny": "97061016",
+            "Co. Laois": "107029004",
+            "Co. Leitrim": "117070001/117070002",
+            "Co. Limerick": "127026010",
+            "Co. Longford": "137045023",
+            "Co. Louth": "147019030/147019031",
+            "Co. Mayo": "157153007",
+            "Co. Meath": "167082036",
+            "Co. Monaghan": "177058015",
+            "Co. Offaly": "187086009",
+            "Co. Roscommon": "197032008/197032009",
+            "Co. Sligo": "207081011/207081020",
+            "Co. Tipperary": "217099001/217112002/217112003/",
+            "Co. Waterford": "227033003/01",
+            "Co. Westmeath": "237003006/02",
+            "Co. Wexford": "247117031",
+            "Co. Wicklow": "257048025",
+            "Cork City": "48017001",
+            "Dublin 1": "268108029/01",
+            "Dublin 10": "268038006",
+            "Dublin 11": "267066019",
+            "Dublin 12": "268051009",
+            "Dublin 13": "268071024",
+            "Dublin 14": "267058001",
+            "Dublin 15": "267028004/02",
+            "Dublin 16": "267085011",
+            "Dublin 17": "268071024",
+            "Dublin 18": "267092026/267092050",
+            "Dublin 19": "267019003",
+            "Dublin 2": "268143024",
+            "Dublin 20": "268037002",
+            "Dublin 21": "167085002",
+            "Dublin 22": "267050007",
+            "Dublin 23": "267050009",
+            "Dublin 24": "267147025/01",
+            "Dublin 3": "268058011/02",
+            "Dublin 4": "268116008",
+            "Dublin 5": "268089008",
+            "Dublin 6": "268127010",
+            "Dublin 6W": "268092008",
+            "Dublin 7": "268035003",
+            "Dublin 8": "268148004/01",
+            "Dublin 9": "268159009",
+            "Galway City": "068012004/068012006",
+            "Limerick City": "128030005/128030006",
+            "Waterford City": "228019001/02"
+        },
+        "overall_mode": "267103001/01"
+    },
+    "MainSpaceHeatingFuel": {
+        "grouped": {
+            "Apartments": 0.224,
+            "Detached houses": 0.272,
+            "End of terrace": 0.203,
+            "Mid-terrace": 0.203,
+            "Semi detached": 0.203
+        },
+        "overall_mode": 0.203
+    },
+    "MainWaterHeatingFuel": {
+        "grouped": {
+            "Apartments": 0.224,
+            "Detached houses": 0.272,
+            "End of terrace": 0.203,
+            "Mid-terrace": 0.203,
+            "Semi detached": 0.203
+        },
+        "overall_mode": 0.203
+    },
+    "SHRenewableResources": {
+        "grouped": {
+            "Apartments": 2.0,
+            "Detached houses": 2.0,
+            "End of terrace": 2.0,
+            "Mid-terrace": 2.0,
+            "Semi detached": 2.0
+        },
+        "overall_mode": 2.0
+    },
+    "WHRenewableResources": {
+        "grouped": {
+            "Apartments": 2.0,
+            "Detached houses": 2.0,
+            "End of terrace": 2.0,
+            "Mid-terrace": 2.0,
+            "Semi detached": 2.0
+        },
+        "overall_mode": 2.0
+    },
+    "VentilationMethod": {
+        "grouped": {
+            "Apartments": 0.52,
+            "Detached houses": 0.52,
+            "End of terrace": 0.52,
+            "Mid-terrace": 0.52,
+            "Semi detached": 0.52
+        },
+        "overall_mode": 0.52
+    },
+    "InsulationType": {
+        "grouped": {
+            "Apartments": "Factory Insulated",
+            "Detached houses": "Factory Insulated",
+            "End of terrace": "Factory Insulated",
+            "Mid-terrace": "Factory Insulated",
+            "Semi detached": "Factory Insulated"
+        },
+        "overall_mode": "Factory Insulated"
+    },
+    "PrimaryCircuitLoss": {
+        "grouped": {
+            "Apartments": 0.0,
+            "Detached houses": 1220.0,
+            "End of terrace": 1220.0,
+            "Mid-terrace": 1220.0,
+            "Semi detached": 1220.0
+        },
+        "overall_mode": 1220.0
+    },
+    "StructureType": {
+        "grouped": {
+            "Apartments": "Masonry",
+            "Detached houses": "Masonry",
+            "End of terrace": "Masonry",
+            "Mid-terrace": "Masonry",
+            "Semi detached": "Masonry"
+        },
+        "overall_mode": "Masonry"
+    },
+    "SupplSHFuel": {
+        "grouped": {
+            "Apartments": 1.0,
+            "Detached houses": 15.0,
+            "End of terrace": 1.0,
+            "Mid-terrace": 8.0,
+            "Semi detached": 15.0
+        },
+        "overall_mode": 15.0
+    },
+    "WindowArea": {
+        "grouped": {
+            "Apartments": 12.289576430187735,
+            "Detached houses": 29.45921743423471,
+            "End of terrace": 15.926878147764267,
+            "Mid-terrace": 14.19039861943111,
+            "Semi detached": 19.343429634968345
+        },
+        "overall_mean": 20.193095546750296
+    },
+    "WallArea": {
+        "grouped": {
+            "Apartments": 46.3687381030895,
+            "Detached houses": 144.11250592614118,
+            "End of terrace": 91.38021182172523,
+            "Mid-terrace": 54.54225350101162,
+            "Semi detached": 95.5404208060672
+        },
+        "overall_mean": 95.28642245942373
+    },
+    "RoofArea": {
+        "grouped": {
+            "Apartments": 25.214387728414994,
+            "Detached houses": 120.05405974810834,
+            "End of terrace": 52.09833652063473,
+            "Mid-terrace": 49.588422898401234,
+            "Semi detached": 62.66841157585238
+        },
+        "overall_mean": 70.9209014806397
+    },
+    "DoorArea": {
+        "grouped": {
+            "Apartments": 1.6614724310064473,
+            "Detached houses": 3.6345568436864277,
+            "End of terrace": 2.7717828936803843,
+            "Mid-terrace": 2.7114434879200227,
+            "Semi detached": 2.9939752987329955
+        },
+        "overall_mean": 2.8803935486809316
+    },
+    "UValueWindow": {
+        "grouped": {
+            "Apartments": 2.4180996213456445,
+            "Detached houses": 2.630996432060336,
+            "End of terrace": 2.497237120625976,
+            "Mid-terrace": 2.672642837307097,
+            "Semi detached": 2.488025536654682
+        },
+        "overall_mean": 2.5462698076801313
+    },
+    "UValueWall": {
+        "grouped": {
+            "Apartments": 0.5983726959507863,
+            "Detached houses": 0.65397571420068,
+            "End of terrace": 0.6657911563334842,
+            "Mid-terrace": 0.8134038164002063,
+            "Semi detached": 0.6258420216381788
+        },
+        "overall_mean": 0.6587000163293599
+    },
+    "UValueFloor": {
+        "grouped": {
+            "Apartments": 0.21138817188406128,
+            "Detached houses": 0.5061251264885381,
+            "End of terrace": 0.5035557145151166,
+            "Mid-terrace": 0.4502757170627207,
+            "Semi detached": 0.44601577408496385
+        },
+        "overall_mean": 0.4242187512149823
+    },
+    "UvalueDoor": {
+        "grouped": {
+            "Apartments": 1.665532333443253,
+            "Detached houses": 2.614443222840416,
+            "End of terrace": 2.403177763828265,
+            "Mid-terrace": 2.4850259055024395,
+            "Semi detached": 2.4517455507416113
+        },
+        "overall_mean": 2.3507145150235664
+    },
+    "UValueRoof": {
+        "grouped": {
+            "Apartments": 0.21117439705263638,
+            "Detached houses": 0.421873080788098,
+            "End of terrace": 0.4051443044627086,
+            "Mid-terrace": 0.5174246836196295,
+            "Semi detached": 0.3530192712471028
+        },
+        "overall_mean": 0.37413358305034666
+    },
+    "HSMainSystemEfficiency": {
+        "grouped": {
+            "0.025": 73.01915584415585,
+            "0.203": 83.60767867653242,
+            "0.224": 258.82481639219645,
+            "0.232": 84.19301321378008,
+            "0.272": 82.89053862433862,
+            "0.361": 52.819315452361884,
+            "0.369": 53.71999149495496,
+            "0.392": 52.185403225806446
+        },
+        "overall_mean": 120.18326755738033
+    },
+    "WHMainSystemEff": {
+        "grouped": {
+            "0.025": 73.17494324045408,
+            "0.203": 83.64863379814078,
+            "0.224": 163.08274985580658,
+            "0.232": 84.13543645196677,
+            "0.272": 82.90454563983111,
+            "0.361": 56.291592920353985,
+            "0.369": 55.65196932438628,
+            "0.392": 56.478665533361664
+        },
+        "overall_mean": 100.28106345883272
+    },
+    "InsulationThickness": {
+        "grouped": {
+            "Factory Insulated": 33.81780289894127,
+            "Loose Jacket": 41.312947456213514,
+            "None": 0.0
+        },
+        "overall_mean": 31.617060407404132
+    },
+    "WaterStorageVolume": {
+        "grouped": {
+            "Apartments": 107.45133708351364,
+            "Detached houses": 141.55179054946078,
+            "End of terrace": 117.05540697925204,
+            "Mid-terrace": 111.40430057620249,
+            "Semi detached": 122.21264979301328
+        },
+        "overall_mean": 123.58596364974682
+    },
+    "HSSupplSystemEff": {
+        "grouped": {
+            "Apartments": 39.39403075331457,
+            "Detached houses": 46.51829344359954,
+            "End of terrace": 34.92018647813932,
+            "Mid-terrace": 36.624070290183724,
+            "Semi detached": 36.994629795960215
+        },
+        "overall_mean": 40.29089008132504
+    },
+    "NoOfChimneys": {
+        "grouped": {
+            "Apartments": 0.1147304150342146,
+            "Detached houses": 0.8022424132036876,
+            "End of terrace": 0.6142763205961862,
+            "Mid-terrace": 0.7109879376474045,
+            "Semi detached": 0.6649538818342369
+        },
+        "overall_mean": 0.6077580119043615
+    },
+    "NoOfOpenFlues": {
+        "grouped": {
+            "Apartments": 0.07542671652705361,
+            "Detached houses": 0.6877014038725586,
+            "End of terrace": 0.28527800102286843,
+            "Mid-terrace": 0.29790596288384724,
+            "Semi detached": 0.33301782033788574
+        },
+        "overall_mean": 0.3893387586732578
+    },
+    "NoOfFansAndVents": {
+        "grouped": {
+            "Apartments": 2.6398518456864624,
+            "Detached houses": 2.5844845461932917,
+            "End of terrace": 2.5125885877109666,
+            "Mid-terrace": 2.3594168142365937,
+            "Semi detached": 2.990526414993833
+        },
+        "overall_mean": 2.668715741332347
+    }
+}

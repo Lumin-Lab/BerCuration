@@ -1,0 +1,7 @@
+torch==2.3.0
+pandas==2.2.2
+wandb==0.17.0
+scikit-learn==1.5.0
+cleanlab==2.6.5
+matplotlib==3.9.0
+python-dotenv==1.0.1

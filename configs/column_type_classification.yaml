@@ -1,0 +1,84 @@
+cat_cols:
+- CountyName
+- DwellingTypeDescr
+- StructureType
+- EnergyRating
+nmr_cols:
+- Year_of_Construction
+- UValueWall
+- UValueRoof
+- UValueFloor
+- UValueWindow
+- UvalueDoor
+- WallArea
+- RoofArea
+- FloorArea
+- WindowArea
+- DoorArea
+- NoStoreys
+- MainSpaceHeatingFuel
+- MainWaterHeatingFuel
+- HSMainSystemEfficiency
+- WHMainSystemEff
+- SHRenewableResources
+- WHRenewableResources
+- NoOfChimneys
+- NoOfOpenFlues
+- NoOfFansAndVents
+- VentilationMethod
+- HeatSystemControlCat
+- HeatSystemResponseCat
+- NoCentralHeatingPumps
+- NoOilBoilerHeatingPumps
+- NoGasBoilerHeatingPumps
+- ElectricityConsumption
+- InsulationThickness
+- WaterStorageVolume
+- ThermalMassCategory
+- PrimaryCircuitLoss
+- HSSupplSystemEff
+- SupplSHFuel
+- LivingAreaPercent
+- LowEnergyLightingPercent
+
+# cat_cols:
+# - CountyName
+# - DwellingTypeDescr
+# - EnergyRating
+# nmr_cols:
+# - Year_of_Construction
+# - UValueWall
+# - UValueRoof
+# - UValueFloor
+# - UValueWindow
+# - UvalueDoor
+# - WallArea
+# - RoofArea
+# - FloorArea
+# - WindowArea
+# - DoorArea
+# - NoStoreys
+# - MainSpaceHeatingFuel
+# - MainWaterHeatingFuel
+# - HSMainSystemEfficiency
+# - WHMainSystemEff
+# - SHRenewableResources
+# - WHRenewableResources
+# - NoOfChimneys
+# - NoOfOpenFlues
+# - NoOfFansAndVents
+# - VentilationMethod
+# - PercentageDraughtStripped
+# - HeatSystemControlCat
+# - CHBoilerThermostatControlled
+# - NoOilBoilerHeatingPumps
+# - NoGasBoilerHeatingPumps
+# - ElectricityConsumption
+# - InsulationThickness
+# - WaterStorageVolume
+# - ThermalMassCategory
+# - PrimaryCircuitLoss
+# - HSSupplSystemEff
+# - SupplSHFuel
+# - LivingAreaPercent
+# - LowEnergyLightingPercent

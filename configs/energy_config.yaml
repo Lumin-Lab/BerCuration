@@ -1,0 +1,96 @@
+
+
+original_rating_encoding:
+  A1: 0
+  A2: 1
+  A3: 2
+  B1: 3
+  B2: 4
+  B3: 5
+  C1: 6
+  C2: 7
+  C3: 8
+  D1: 9
+  D2: 10
+  E1: 11
+  E2: 12
+  F: 13
+  G: 14
+
+
+# # Features used in the model
+# features:
+# - CountyName
+# - Year_of_Construction
+# - DwellingTypeDescr
+# - UValueWall
+# - UValueRoof
+# - UValueFloor
+# - UValueWindow
+# - UvalueDoor
+# - WallArea
+# - RoofArea
+# - FloorArea
+# - WindowArea
+# - DoorArea
+# - NoStoreys
+# - MainSpaceHeatingFuel
+# - MainWaterHeatingFuel
+# - HSMainSystemEfficiency
+# - WHMainSystemEff
+# - SHRenewableResources
+# - WHRenewableResources
+# - NoOfChimneys
+# - NoOfOpenFlues
+# - NoOfFansAndVents
+# - VentilationMethod
+# - HeatSystemControlCat
+# - HeatSystemResponseCat
+# - NoCentralHeatingPumps
+# - CHBoilerThermostatControlled
+# - NoOilBoilerHeatingPumps
+# - OBBoilerThermostatControlled
+# - NoGasBoilerHeatingPumps
+# - ElectricityConsumption
+# - SA_Code
+# - InsulationType
+# - InsulationThickness
+# - WaterStorageVolume
+# - ThermalMassCategory
+# - PrimaryCircuitLoss
+# - HSSupplSystemEff
+# - SupplSHFuel
+# - LivingAreaPercent
+# - LowEnergyLightingPercent
+
+building_energy_rating_categories:
+  - category: "A1"
+    ber: "≤ 25"
+  - category: "A2"
+    ber: "≤ 25"
+  - category: "A3"
+    ber: "≤ 50"
+  - category: "B1"
+    ber: "≤ 75"
+  - category: "B2"
+    ber: "≤ 100"
+  - category: "B3"
+    ber: "≤ 125"
+  - category: "C1"
+    ber: "> 150"
+  - category: "C2"
+    ber: "≤ 175"
+  - category: "C3"
+    ber: "≤ 200"
+  - category: "D1"
+    ber: "> 225"
+  - category: "D2"
+    ber: "≤ 260"
+  - category: "E1"
+    ber: "> 300"
+  - category: "E2"
+    ber: "≤ 340"
+  - category: "F"
+    ber: "≤ 380"
+  - category: "G"
+    ber: "≤ 450"

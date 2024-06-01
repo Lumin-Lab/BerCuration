@@ -1,0 +1,7 @@
+*.ipynb
+.env
+wandb
+__pycache__
+exp
+*.npy
+data/
