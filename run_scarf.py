@@ -88,6 +88,7 @@ train_df = processor.process(df_train, is_train=True)
 
 # Initialize and train the model
 model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
+model.to(args.device)
 train_encoder(train_df, 
               ScarfToDataLoader, 
               model, 
