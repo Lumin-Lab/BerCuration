@@ -2,10 +2,10 @@ import argparse
 import os
 import pandas as pd
 import wandb
-from utils import set_seed, load_from_yaml, get_features_from_yaml
-from data_processor import DataProcessor
-from model import SCARF
-from dataloader import ScarfToDataLoader
+from scripts.utils import set_seed, load_from_yaml, get_features_from_yaml
+from scripts.data_processor import DataProcessor
+from scripts.model import SCARF
+from scripts.dataloader import ScarfToDataLoader
 from train import train_encoder
 from dotenv import load_dotenv
 # Suppress Dtype and Future warnings from pandas

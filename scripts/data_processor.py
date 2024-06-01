@@ -2,7 +2,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler, QuantileTransformer
 import warnings
-from utils import save_to_json, load_from_json, save_as_yaml, load_from_yaml, get_features_from_yaml
+from scripts.utils import save_to_json, load_from_json, save_as_yaml, load_from_yaml, get_features_from_yaml
 from joblib import dump, load
 
 

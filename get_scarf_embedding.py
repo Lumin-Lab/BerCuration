@@ -2,10 +2,10 @@ import argparse
 import os
 import pandas as pd
 import torch
-from utils import set_seed, load_from_yaml, get_features_from_yaml, load_model
-from data_processor import DataProcessor
-from model import SCARF
-from dataloader import ScarfToDataLoader
+from scripts.utils import set_seed, load_from_yaml, get_features_from_yaml, load_model
+from scripts.data_processor import DataProcessor
+from scripts.model import SCARF
+from scripts.dataloader import ScarfToDataLoader
 # Suppress Dtype and Future warnings from pandas
 import warnings
 import numpy as np

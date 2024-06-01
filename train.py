@@ -1,8 +1,8 @@
-from model import NTXent
+from scripts.model import NTXent
 import torch
 import math
 import wandb
-from utils import save_model
+from scripts.utils import save_model
 
 def train_encoder(train_df,
                 DataFrameToDataLoader, 
