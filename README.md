@@ -1,5 +1,3 @@
-# SCARF_BER
-
 ## Setup
 **Installation:**
 Create a conda environment named `scarf`:
