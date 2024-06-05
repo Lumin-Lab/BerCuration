@@ -10,8 +10,6 @@ pip install -r requirements.txt
 ```
 
 **WANDB API Key:**
-
-* Create a W&B account ([https://wandb.ai/site](https://wandb.ai/site)) if you don't have one.
 * Write your W&B API key to `.env`, an example is in `env_example`.
 * For Kaggle users, store your W&B API key as a Kaggle secret.
 
