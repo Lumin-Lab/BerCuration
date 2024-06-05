@@ -410,7 +410,11 @@ def cat_encode(df, cat_cols, is_train, encoder_path="dl_configs/encoder.joblib",
         for col in cat_cols:
             if col == "SA_Code":
                 df[col] = df[col].astype(str)
-            df[col] = encoders[col].transform(df[col])
+            try:
+                df[col] = encoders[col].transform(df[col])
+            except:
+                encoder.fit(df[col])
+                df[col] = encoder.transform(df[col])
     
     return df
 
