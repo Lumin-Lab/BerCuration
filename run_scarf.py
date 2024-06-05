@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 import warnings
 warnings.simplefilter(action='ignore', category=pd.errors.DtypeWarning)
 warnings.filterwarnings('ignore', category=FutureWarning)
-
+import torch
 # Set a consistent seed for reproducibility
 set_seed(42)
 load_dotenv()
@@ -30,7 +30,7 @@ parser.add_argument('--emb_dim', type=int, default=32, help='Dimensionality of t
 parser.add_argument('--encoder_depth', type=int, default=3, help='Depth of the encoder model')
 parser.add_argument('--model_name', type=str, default="scarf", help='Name of saved model')
 parser.add_argument('--corruption_rate', type=float, default=0.3, help='Rate of corruption applied during training')
-parser.add_argument('--device', type=str, default="cpu")
+# parser.add_argument('--device', type=str, default="cpu")
 parser.add_argument('--wandb_project_name', type=str, required=True, help='Name of wandb project')
 parser.add_argument('--wandb_entity', type=str, default="urbancomp", help='Name of wandb entity')
 parser.add_argument('--wandb_key', type=str)
@@ -86,13 +86,15 @@ df_train = pd.read_csv(f"{args.train_data_path}")
 processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
 train_df = processor.process(df_train, is_train=True)
 
+
+device = "cuda" if  torch.cuda.is_available() else "cpu"
 # Initialize and train the model
 model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
-model.to(args.device)
+model.to(device)
 train_encoder(train_df, 
               ScarfToDataLoader, 
               model, 
-              device=args.device, 
+              device=device, 
               target_col=target, 
               batch_size=args.batch_size, 
               lr=args.lr, 

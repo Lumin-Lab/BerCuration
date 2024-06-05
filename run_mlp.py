@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 import warnings
 warnings.simplefilter(action='ignore', category=pd.errors.DtypeWarning)
 warnings.filterwarnings('ignore', category=FutureWarning)
-
+import torch
 # Set a consistent seed for reproducibility
 set_seed(42)
 load_dotenv()
@@ -29,7 +29,7 @@ parser.add_argument('--batch_size', type=int, default=32, help='Batch size for t
 parser.add_argument('--epochs', type=int, default=1, help='Number of training epochs')
 parser.add_argument('--lr', type=float, default=3e-5, help='Learning rate')
 parser.add_argument('--model_name', type=str, default="scarf", help='Name of saved model')
-parser.add_argument('--device', type=str, default="cpu")
+# parser.add_argument('--device', type=str, default="cpu")
 parser.add_argument('--wandb_project_name', type=str, required=True, help='Name of wandb project')
 parser.add_argument('--wandb_entity', type=str, default="urbancomp", help='Name of wandb entity')
 parser.add_argument('--wandb_key', type=str)
@@ -42,7 +42,7 @@ args = parser.parse_args()
 if not os.path.exists(args.output_dir):
     os.makedirs(args.output_dir)
 
-
+device = "cuda" if  torch.cuda.is_available() else "cpu"
 # Load configurations from YAML files
 preprocessing_config = load_from_yaml(f"{args.config_dir}/preprocess_config.yaml")
 energy_config = load_from_yaml(f"{args.config_dir}/energy_config.yaml")
@@ -92,13 +92,13 @@ test_df = processor.process(df_test, is_train=False)
 model = MLP(input_size=len(features),
             output_size=len(energyRatingEncoding),
             hidden_layers=args.hidden_layer,
-            dropout_rate = args.dropout).to(args.device)
+            dropout_rate = args.dropout).to(device)
 
 train_mlp(train_df,
           test_df,
           DataFrameToDataLoader=DataFrameToDataLoader,
           model=model,
-          device =args.device,
+          device =device,
           energyRatingEncoding=energyRatingEncoding,
           target_col=target,
           batch_size=args.batch_size,

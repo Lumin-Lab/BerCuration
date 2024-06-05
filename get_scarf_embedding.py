@@ -28,13 +28,15 @@ parser.add_argument('--emb_dim', type=int, default=32, help='Dimensionality of t
 parser.add_argument('--encoder_depth', type=int, default=3, help='Depth of the encoder model')
 parser.add_argument('--model_name', type=str, default="scarf", help='Name of saved model')
 parser.add_argument('--corruption_rate', type=float, default=0.3, help='Rate of corruption applied during training')
-parser.add_argument('--device', type=str, default="cpu")
+# parser.add_argument('--device', type=str, default="cpu")
 parser.add_argument('--embedding_save_name', type=str, required=True)
 args = parser.parse_args()
 
 # Ensure output directory exists
 if not os.path.exists(args.output_dir):
     os.makedirs(args.output_dir)
+
+device = "cuda" if  torch.cuda.is_available() else "cpu"
 
 # Load configurations from YAML files
 preprocessing_config = load_from_yaml(f"{args.config_dir}/preprocess_config.yaml")
@@ -62,7 +64,7 @@ model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.
 model = load_model(model_dir = args.output_dir, 
            model_name= args.model_name,
            model = model,
-           device = args.device)
+           device = device)
 
 model.eval()
 embeddings = []
@@ -73,7 +75,7 @@ dataloader = ScarfToDataLoader(data_df,
 
 with torch.no_grad():
     for f, _ in dataloader:
-        embeddings.append(model.get_embeddings(f.to(args.device)))
+        embeddings.append(model.get_embeddings(f.to(device)))
         
 embeddings = torch.cat(embeddings, dim=0)
 embeddings = embeddings.cpu()
