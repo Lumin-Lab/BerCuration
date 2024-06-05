@@ -9,7 +9,7 @@ pip install -r requirements.txt
 
 **WANDB API Key:**
 * Write your W&B API key to `.env`, an example is in `env_example`.
-* For Kaggle users, store your W&B API key as a Kaggle secret.
+* For Kaggle users, store your W&B API key as a Kaggle secret. This is link to kaggle notebook https://www.kaggle.com/code/alleewang/scarf-cleanlab/edit/run/181654556.
 
 ## Train the SCARF model
 The trained scarf model will be save in  `exp/scarf.pt` if you run the following command:
