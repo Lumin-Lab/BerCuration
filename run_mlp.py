@@ -84,9 +84,9 @@ df_train = pd.read_csv(f"{args.train_data_path}")
 df_test = pd.read_csv(f"{args.test_data_path}")
 
 # Process datasets
-processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
-train_df = processor.process(df_train, is_train=True)
-test_df = processor.process(df_test, is_train=False)
+# processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
+# train_df = processor.process(df_train, is_train=True)
+# test_df = processor.process(df_test, is_train=False)
 
 # Initialize and train the model
 model = MLP(input_size=len(features),
@@ -94,8 +94,8 @@ model = MLP(input_size=len(features),
             hidden_layers=args.hidden_layer,
             dropout_rate = args.dropout).to(device)
 
-train_mlp(train_df,
-          test_df,
+train_mlp(df_train,
+          df_test,
           DataFrameToDataLoader=DataFrameToDataLoader,
           model=model,
           device =device,

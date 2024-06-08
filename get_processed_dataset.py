@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser(description='Train SCARF model')
 parser.add_argument('--config_dir', default='configs', help='Directory for configuration files')
 parser.add_argument('--output_dir', default='exp', help='Output directory for models and stats')
 parser.add_argument('--output_csv_name', required=True)
-parser.add_argument('--data_path', default='data/small_train.csv', help='Path to the training data file.')
+parser.add_argument('--data_path', required=True)
 parser.add_argument('--is_train', action=argparse.BooleanOptionalAction)
 
 args = parser.parse_args()
@@ -43,6 +43,10 @@ energyRatingEncoding = energy_config["original_rating_encoding"]
 
 # Load datasets
 df = pd.read_csv(f"{args.data_path}")
+try:
+    df['GroundFloorArea_sq_m_'] = df["GroundFloorArea(sq m)"]
+except:
+    pass
 
 # Process datasets
 processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)

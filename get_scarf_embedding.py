@@ -56,8 +56,8 @@ energyRatingEncoding = energy_config["original_rating_encoding"]
 df = pd.read_csv(f"{args.data_path}")
 
 # Process datasets
-processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
-data_df = processor.process(df, is_train=True)
+# processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
+# data_df = processor.process(df, is_train=True)
 
 # Initialize and train the model
 model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
@@ -68,7 +68,7 @@ model = load_model(model_dir = args.output_dir,
 
 model.eval()
 embeddings = []
-dataloader = ScarfToDataLoader(data_df, 
+dataloader = ScarfToDataLoader(df, 
                                 target_col=target, 
                                 batch_size=args.batch_size, 
                                 shuffle=False).dataloader

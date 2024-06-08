@@ -82,16 +82,16 @@ wandb.init(
 # Load datasets
 df_train = pd.read_csv(f"{args.train_data_path}")
 
-# Process datasets
-processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
-train_df = processor.process(df_train, is_train=True)
+# # Process datasets
+# processor = DataProcessor(preprocessing_config, train_stats_path, column_type_path, scaler_path, encoder_path, small_area_path, target, features)
+# train_df = processor.process(df_train, is_train=True)
 
 
 device = "cuda" if  torch.cuda.is_available() else "cpu"
 # Initialize and train the model
 model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
 model.to(device)
-train_encoder(train_df, 
+train_encoder(df_train, 
               ScarfToDataLoader, 
               model, 
               device=device, 
