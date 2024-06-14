@@ -60,7 +60,7 @@ df = pd.read_csv(f"{args.data_path}")
 # data_df = processor.process(df, is_train=True)
 
 # Initialize and train the model
-model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
+model = SCARF(input_dim=df.shape[1]-1, emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
 model = load_model(model_dir = args.output_dir, 
            model_name= args.model_name,
            model = model,

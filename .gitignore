@@ -1,7 +1,11 @@
-*.ipynb
 .env
 wandb
 __pycache__
 exp
 *.npy
 data/
+BER_stratified_sample.csv
+output/
+run_on_local*
+*csv
+test.ipynb

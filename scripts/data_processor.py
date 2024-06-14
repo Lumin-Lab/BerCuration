@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder, StandardScaler, QuantileTransformer
+from sklearn.preprocessing import LabelEncoder, StandardScaler, QuantileTransformer, OneHotEncoder
 import warnings
 from scripts.utils import save_to_json, load_from_json, save_as_yaml, load_from_yaml, get_features_from_yaml
 from joblib import dump, load
@@ -386,18 +386,34 @@ def scale(df, nmr_cols, is_train, scaler_path = "dl_configs/scaler.joblib"):
 def cat_encode(df, cat_cols, is_train, encoder_path="dl_configs/encoder.joblib", 
                small_area_path = "dl_configs/small_area.yaml"):
     encoders = {}
+    cols = []
 
     if is_train:
         # ber = pd.read_csv("data/ber.csv")
         # If is_train is True, fit a new encoder for each categorical column and save them.
         for col in cat_cols:
-            encoder = LabelEncoder()
+            cols += [col]
+            encoder = OneHotEncoder()
             if col == "SA_Code":
                 encoder.fit(load_from_yaml(small_area_path))
-            else:
+            elif col == "EnergyRating":
+                encoder = LabelEncoder()
                 encoder.fit(df[col])
+            else:
+                try:
+                    encoder.fit(df[col])
+                except:
+                    encoder.fit(df[col].values.reshape(-1,1))
+
             encoders[col] = encoder
-            df[col] = encoder.transform(df[col])
+            try:
+                df[col] = encoder.transform(df[col])
+            except:
+                transformed_col = encoder.transform(df[col].values.reshape(-1, 1)).toarray()
+                transformed_col_df = pd.DataFrame(transformed_col, columns=encoder.get_feature_names_out([col]))
+                df = pd.concat([df.drop(columns=[col]), transformed_col_df], axis=1)
+                cols += transformed_col_df.columns.tolist()
+            
             
         
         # Save the encoders to a file
@@ -406,18 +422,31 @@ def cat_encode(df, cat_cols, is_train, encoder_path="dl_configs/encoder.joblib",
     else:
         # If is_train is False, load the encoders and use them to transform the categorical columns.
         encoders = load(encoder_path)
-    
-        for col in cat_cols:
+        for col in encoders.keys():
+            encoder = encoders[col]
+            cols += [col]
             if col == "SA_Code":
                 df[col] = df[col].astype(str)
-            try:
+            elif col == "EnergyRating":
                 df[col] = encoders[col].transform(df[col])
-            except:
-                encoder = LabelEncoder()
-                encoder.fit(df[col])
-                df[col] = encoder.transform(df[col])
-    
-    return df
+            else:
+                if isinstance(encoder, LabelEncoder):
+                    encoder.fit(df[col])
+                    df[col] = encoder.transform(df[col])
+                else:
+                    try:
+                        transformed_col = encoder.transform(df[col].values.reshape(-1, 1)).toarray()
+                        transformed_col_df = pd.DataFrame(transformed_col, columns=encoder.get_feature_names_out([col]))
+                        df = pd.concat([df.drop(columns=[col]), transformed_col_df], axis=1)
+                        cols += transformed_col_df.columns.tolist()
+                    except:
+                        encoder = OneHotEncoder()
+                        encoder.fit(df[col].values.reshape(-1,1))
+                        transformed_col = encoder.transform(df[col].values.reshape(-1, 1)).toarray()
+                        transformed_col_df = pd.DataFrame(transformed_col, columns=encoder.get_feature_names_out([col]))
+                        df = pd.concat([df.drop(columns=[col]), transformed_col_df], axis=1)
+                        cols += transformed_col_df.columns.tolist()
+    return df, cols
 
 
 class DataProcessor:
@@ -486,12 +515,33 @@ class DataProcessor:
         # Handle categorical columns encoding
         cat_cols, _ = self._split_cat_nmr_cols(data, is_train, self.column_type_path)
 
-        data = self._cat_encode(data, cat_cols, is_train, self.encoder_path, self.small_area_path)
+        data, cat_cols = self._cat_encode(data, cat_cols, is_train, self.encoder_path, self.small_area_path)
 
         # Handle scaling for numerical columns
         cols = data.columns.tolist()
+        
+        # cat_cols, nmr_cols = self._split_cat_nmr_cols(data, is_train, self.column_type_path)
         # _, nmr_cols = self._split_cat_nmr_cols(data, is_train=False)
-        cols.remove(self.target)
+        # cols.remove(self.target)
+        # for col in cat_cols:
+        #     try:
+        #         cols.remove(col)
+        #     except:
+        #         print(col)
+       
+        for col in cat_cols:
+            if col in cols:
+                cols.remove(col)
+        if "CountyName" in cols:
+            cols.remove("CountyName")
+        if 'DwellingTypeDescr' in cols:
+            cols.remove("DwellingTypeDescr")
+        if 'StructureType' in cols:
+            cols.remove('StructureType')
+        if "EnergyRating" in cols:
+            cols.remove('EnergyRating')
+        
+        
         data = self._scale(data, cols, is_train, self.scaler_path)
 
         return data.iloc[-len(df):] if not is_train else data

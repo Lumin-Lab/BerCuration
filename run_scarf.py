@@ -89,7 +89,7 @@ df_train = pd.read_csv(f"{args.train_data_path}")
 
 device = "cuda" if  torch.cuda.is_available() else "cpu"
 # Initialize and train the model
-model = SCARF(input_dim=len(features), emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
+model = SCARF(input_dim=df_train.shape[1]-1, emb_dim=args.emb_dim, encoder_depth=args.encoder_depth, corruption_rate=args.corruption_rate)
 model.to(device)
 train_encoder(df_train, 
               ScarfToDataLoader, 
